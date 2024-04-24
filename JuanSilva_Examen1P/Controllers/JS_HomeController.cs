@@ -1,6 +1,7 @@
 using JuanSilva_Examen1P.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 
 namespace JuanSilva_Examen1P.Controllers
 {
@@ -23,6 +24,12 @@ namespace JuanSilva_Examen1P.Controllers
             return View();
         }
 
+        [HttpGet] //Metodo para mostrar el formulario
+        public IActionResult Crear()
+        {
+            return View();
+        }
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
