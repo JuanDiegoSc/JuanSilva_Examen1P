@@ -9,11 +9,14 @@ namespace JuanSilva_Examen1P.Models
         public int JsProductoID { get; set; }
 
         [Required]
+        [Display(Name = "Numero de Serie")]
         public int JsnumeroSerie { get; set; }
         [Range(1,20)]
+        [Display(Name = "Precio")]
         public decimal Jsprecio { get; set; }
 
         [StringLength(10, ErrorMessage ="Excede el numero max de caracteres")]
+        [Display(Name = "Nombre Producto")]
         public string? JsNombreProducto { get; set; }
 
         [Required]
@@ -22,6 +25,7 @@ namespace JuanSilva_Examen1P.Models
 
         [Required]
         [DataType(DataType.DateTime)]
+        [Display(Name = "Fecha")]
         public DateTime JsFechaAgregado { get; set; }
     }
 }
