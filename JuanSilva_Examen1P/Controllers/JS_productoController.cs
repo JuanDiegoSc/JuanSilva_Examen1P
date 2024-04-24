@@ -135,7 +135,7 @@ namespace JuanSilva_Examen1P.Controllers
         }
 
         // POST: JS_producto/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("JS_Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> JS_DeleteConfirmed(int id)
         {
