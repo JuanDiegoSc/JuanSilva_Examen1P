@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace JuanSilva_Examen1P.Controllers
 {
-    public class HomeController : Controller
+    public class JS_HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<JS_HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public JS_HomeController(ILogger<JS_HomeController> logger)
         {
             _logger = logger;
         }

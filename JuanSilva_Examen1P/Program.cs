@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using JuanSilva_Examen1P.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<JuanSilva_Examen1PContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("JuanSilva_Examen1PContext") ?? throw new InvalidOperationException("Connection string 'JuanSilva_Examen1PContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=JS_Home}/{action=Index}/{id?}");
 
 app.Run();
