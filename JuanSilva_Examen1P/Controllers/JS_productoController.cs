@@ -20,13 +20,13 @@ namespace JuanSilva_Examen1P.Controllers
         }
 
         // GET: JS_producto
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> JS_Index()
         {
             return View(await _context.JS_producto.ToListAsync());
         }
 
         // GET: JS_producto/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> JS_Details(int? id)
         {
             if (id == null)
             {
@@ -44,7 +44,7 @@ namespace JuanSilva_Examen1P.Controllers
         }
 
         // GET: JS_producto/Create
-        public IActionResult Create()
+        public IActionResult JS_Create()
         {
             return View();
         }
@@ -54,19 +54,19 @@ namespace JuanSilva_Examen1P.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JsProductoID,JsnumeroSerie,Jsprecio,JsNombreProducto,JsDisponible,JsFechaAgregado")] JS_producto jS_producto)
+        public async Task<IActionResult> JS_Create([Bind("JsProductoID,JsnumeroSerie,Jsprecio,JsNombreProducto,JsDisponible,JsFechaAgregado")] JS_producto jS_producto)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(jS_producto);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(JS_Index));
             }
             return View(jS_producto);
         }
 
         // GET: JS_producto/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> JS_Edit(int? id)
         {
             if (id == null)
             {
@@ -86,7 +86,7 @@ namespace JuanSilva_Examen1P.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("JsProductoID,JsnumeroSerie,Jsprecio,JsNombreProducto,JsDisponible,JsFechaAgregado")] JS_producto jS_producto)
+        public async Task<IActionResult> JS_Edit(int id, [Bind("JsProductoID,JsnumeroSerie,Jsprecio,JsNombreProducto,JsDisponible,JsFechaAgregado")] JS_producto jS_producto)
         {
             if (id != jS_producto.JsProductoID)
             {
@@ -111,13 +111,13 @@ namespace JuanSilva_Examen1P.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(JS_Index));
             }
             return View(jS_producto);
         }
 
         // GET: JS_producto/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> JS_Delete(int? id)
         {
             if (id == null)
             {
@@ -137,7 +137,7 @@ namespace JuanSilva_Examen1P.Controllers
         // POST: JS_producto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> JS_DeleteConfirmed(int id)
         {
             var jS_producto = await _context.JS_producto.FindAsync(id);
             if (jS_producto != null)
@@ -146,7 +146,7 @@ namespace JuanSilva_Examen1P.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(JS_Index));
         }
 
         private bool JS_productoExists(int id)

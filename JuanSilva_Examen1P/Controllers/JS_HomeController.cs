@@ -1,5 +1,7 @@
+using JuanSilva_Examen1P.Data;
 using JuanSilva_Examen1P.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 
@@ -7,29 +9,23 @@ namespace JuanSilva_Examen1P.Controllers
 {
     public class JS_HomeController : Controller
     {
-        private readonly ILogger<JS_HomeController> _logger;
+        private readonly JuanSilva_Examen1PContext _context;
 
-        public JS_HomeController(ILogger<JS_HomeController> logger)
+        public JS_HomeController(JuanSilva_Examen1PContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
+        public IActionResult JS_Index()
         {
             return View();
         }
 
-        [HttpGet] //Metodo para mostrar el formulario
-        public IActionResult Crear()
+        public IActionResult JS_Privacy()
         {
             return View();
         }
-       
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
